@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>КиберМосква — образовательный проект по цифровой грамотности</title>
+  <meta name="description" content="КиберМосква — образовательная площадка по информационной безопасности: афиша мероприятий, регистрация участников и проверка знаний.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================== ШУМ / ФОНОВАЯ СЕТКА ===================== -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- ===================== НАВИГАЦИЯ ===================== -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+
+      <a href="#top" class="brand" aria-label="КиберМосква — на главную">
+        <img src="assets/logos/cybermoscow.png" alt="КиберМосква" class="brand-logo">
+      </a>
+
+      <nav class="main-nav" aria-label="Основная навигация">
+        <ul>
+          <li><a href="#poster" data-nav>Афиша</a></li>
+          <li><a href="#speakers" data-nav>Спикеры</a></li>
+          <li><a href="#registration" data-nav>Регистрация</a></li>
+          <li><a href="#testing" data-nav>Тестирование</a></li>
+          <li><a href="#about" data-nav>О проекте</a></li>
+        </ul>
+      </nav>
+
+      <a href="#registration" class="btn btn-primary nav-cta">Записаться</a>
+
+      <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- мобильное меню -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+      <ul>
+        <li><a href="#poster" data-nav>Афиша</a></li>
+        <li><a href="#speakers" data-nav>Спикеры</a></li>
+        <li><a href="#registration" data-nav>Регистрация</a></li>
+        <li><a href="#testing" data-nav>Тестирование</a></li>
+        <li><a href="#about" data-nav>О проекте</a></li>
+        <li><a href="#registration" class="btn btn-primary" data-nav>Записаться</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- индикатор прогресса прохождения секций -->
+  <div class="progress-rail" aria-hidden="true">
+    <span class="progress-fill" id="progressFill"></span>
+  </div>
+
+  <main id="main">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span>Образовательный проект · Москва</p>
+
+          <h1 class="hero-title">
+            Каждый клик —<br>
+            это <span class="text-charge">разряд</span>.<br>
+            Учись держать удар.
+          </h1>
+
+          <p class="hero-lead">
+            «КиберМосква» — площадка для молодёжи Москвы, где разбирают реальные цифровые угрозы:
+            от фишинговых «штормов» до вирусных «лавин». Смотри афишу, записывайся на встречу
+            со спикерами и проверь, на сколько баллов готов твой цифровой иммунитет.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#registration" class="btn btn-primary btn-lg">
+              Зарегистрироваться
+              <svg viewBox="0 0 16 16" width="16" height="16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="#testing" class="btn btn-ghost btn-lg">Пройти тест</a>
+          </div>
+
+          <dl class="hero-stats" aria-label="Краткая статистика проекта">
+            <div class="stat">
+              <dt>Формат</dt>
+              <dd>офлайн‑встречи + онлайн‑тест</dd>
+            </div>
+            <div class="stat">
+              <dt>Для кого</dt>
+              <dd>студенты колледжей и вузов Москвы</dd>
+            </div>
+            <div class="stat">
+              <dt>Город</dt>
+              <dd>Москва</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <svg class="storm-svg" viewBox="0 0 480 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="haloGrad" cx="50%" cy="38%" r="60%">
+                <stop offset="0%" stop-color="#3D6BFF" stop-opacity="0.55"/>
+                <stop offset="100%" stop-color="#3D6BFF" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="boltGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFD27A"/>
+                <stop offset="100%" stop-color="#FFB627"/>
+              </linearGradient>
+            </defs>
+
+            <circle cx="240" cy="210" r="190" fill="url(#haloGrad)"/>
+
+            <!-- концентрические "радар" окружности -->
+            <g class="radar-rings" stroke="#3D6BFF" stroke-opacity="0.35">
+              <circle cx="240" cy="210" r="80" fill="none"/>
+              <circle cx="240" cy="210" r="130" fill="none"/>
+              <circle cx="240" cy="210" r="180" fill="none"/>
+            </g>
+
+            <!-- молния — главный сигнатурный элемент -->
+            <path class="bolt-main" d="M262 40L176 250H236L196 460L320 210H252L262 40Z"
+                  fill="url(#boltGrad)" stroke="#0B1220" stroke-width="3" stroke-linejoin="round"/>
+
+            <!-- мелкие узловые точки данных по орбите -->
+            <g class="data-node">
+              <circle cx="92" cy="150" r="5" fill="#39D9C9"/>
+              <circle cx="92" cy="150" r="14" fill="none" stroke="#39D9C9" stroke-opacity="0.5"/>
+            </g>
+            <g class="data-node" style="animation-delay:.6s">
+              <circle cx="392" cy="120" r="5" fill="#39D9C9"/>
+              <circle cx="392" cy="120" r="14" fill="none" stroke="#39D9C9" stroke-opacity="0.5"/>
+            </g>
+            <g class="data-node" style="animation-delay:1.2s">
+              <circle cx="370" cy="400" r="5" fill="#FFB627"/>
+              <circle cx="370" cy="400" r="14" fill="none" stroke="#FFB627" stroke-opacity="0.5"/>
+            </g>
+            <g class="data-node" style="animation-delay:1.8s">
+              <circle cx="110" cy="420" r="5" fill="#39D9C9"/>
+              <circle cx="110" cy="420" r="14" fill="none" stroke="#39D9C9" stroke-opacity="0.5"/>
+            </g>
+
+            <!-- пунктирные связи -->
+            <g stroke="#39D9C9" stroke-opacity="0.3" stroke-dasharray="4 6">
+              <line x1="92" y1="150" x2="200" y2="210"/>
+              <line x1="392" y1="120" x2="280" y2="210"/>
+              <line x1="370" y1="400" x2="280" y2="320"/>
+              <line x1="110" y1="420" x2="200" y2="330"/>
+            </g>
+          </svg>
+        </div>
+
+      </div>
+
+      <div class="hero-marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>ФИШИНГ</span><span class="dash">—</span>
+          <span>СОЦИАЛЬНАЯ ИНЖЕНЕРИЯ</span><span class="dash">—</span>
+          <span>УТЕЧКИ ДАННЫХ</span><span class="dash">—</span>
+          <span>ВРЕДОНОСНЫЙ КОД</span><span class="dash">—</span>
+          <span>ЦИФРОВАЯ ГИГИЕНА</span><span class="dash">—</span>
+          <span>ПАРОЛЬНАЯ ЗАЩИТА</span><span class="dash">—</span>
+          <span>ФИШИНГ</span><span class="dash">—</span>
+          <span>СОЦИАЛЬНАЯ ИНЖЕНЕРИЯ</span><span class="dash">—</span>
+          <span>УТЕЧКИ ДАННЫХ</span><span class="dash">—</span>
+          <span>ВРЕДОНОСНЫЙ КОД</span><span class="dash">—</span>
+          <span>ЦИФРОВАЯ ГИГИЕНА</span><span class="dash">—</span>
+          <span>ПАРОЛЬНАЯ ЗАЩИТА</span><span class="dash">—</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="crack-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 20L80 20L110 5L150 35L190 20L1200 20" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+    </div>
+
+    <!-- ===================== АФИША ===================== -->
+    <section class="section" id="poster">
+      <div class="container">
+
+        <div class="section-head">
+          <p class="section-eyebrow">01 — Афиша</p>
+          <h2 class="section-title">Расписание встреч и&nbsp;спикеров</h2>
+          <p class="section-desc">
+            Программа проекта проходит с&nbsp;07.05.2026 по&nbsp;05.06.2026&nbsp;— лекции, воркшопы и&nbsp;киберучения.
+            Расписание событий публикуется по&nbsp;мере подтверждения программы.
+          </p>
+        </div>
+
+        <!-- Период проведения -->
+        <div class="poster-period">
+          <span class="period-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <span class="period-text"><strong>с 07.05.2026 по 05.06.2026</strong></span>
+        </div>
+
+        <!-- Афиша: события публикуются по мере подтверждения -->
+        <div class="poster-soon">
+          <span class="poster-soon-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18M8 3v4M16 3v4M8 14h3M8 17h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <p class="poster-soon-title">Расписание скоро появится</p>
+          <p class="poster-soon-text">Следите за обновлениями&nbsp;— список лекций, воркшопов и&nbsp;киберучений будет опубликован здесь.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="crack-divider crack-divider--alt" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 20L1010 20L1050 35L1090 5L1120 20L1200 20" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+    </div>
+
+    <!-- ===================== СПИКЕРЫ ===================== -->
+    <section class="section" id="speakers">
+      <div class="container">
+
+        <div class="section-head">
+          <p class="section-eyebrow">02 — Спикеры</p>
+          <h2 class="section-title">Эксперты проекта</h2>
+          <p class="section-desc">
+            С участниками работают практикующие специалисты по информационной безопасности.
+          </p>
+        </div>
+
+        <div class="speakers-grid">
+
+          <figure class="speaker-card">
+            <div class="speaker-photo">
+              <img src="img/speaker-batrankov.jpg" alt="Денис Батранков" loading="lazy">
+            </div>
+            <figcaption class="speaker-info">
+              <p class="speaker-fullname">Денис Батранков</p>
+              <p class="speaker-role">специалист проекта КиберМосква</p>
+            </figcaption>
+          </figure>
+
+          <figure class="speaker-card">
+            <div class="speaker-photo">
+              <img src="img/speaker-tyukachev.jpg" alt="Игорь Тюкачев" loading="lazy">
+            </div>
+            <figcaption class="speaker-info">
+              <p class="speaker-fullname">Игорь Тюкачев</p>
+              <p class="speaker-role">специалист проекта КиберМосква</p>
+            </figcaption>
+          </figure>
+
+          <figure class="speaker-card">
+            <div class="speaker-photo">
+              <img src="img/speaker-matyushin.jpg" alt="Александр Матюшин" loading="lazy">
+            </div>
+            <figcaption class="speaker-info">
+              <p class="speaker-fullname">Александр Матюшин</p>
+              <p class="speaker-role">специалист проекта КиберМосква</p>
+            </figcaption>
+          </figure>
+
+          <figure class="speaker-card">
+            <div class="speaker-photo">
+              <img src="img/speaker-simonyan.jpg" alt="Роберт Симонян" loading="lazy">
+            </div>
+            <figcaption class="speaker-info">
+              <p class="speaker-fullname">Роберт Симонян</p>
+              <p class="speaker-role">специалист проекта КиберМосква</p>
+            </figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== РЕГИСТРАЦИЯ ===================== -->
+    <section class="section section--accent" id="registration">
+      <div class="container reg-grid">
+
+        <div class="reg-info">
+          <p class="section-eyebrow">03 — Регистрация</p>
+          <h2 class="section-title">Стань участником «КиберМосквы»</h2>
+          <p class="section-desc">
+            Заполните форму — и мы пришлём приглашение на ближайшие события проекта, а также доступ
+            к блоку тестирования цифровой грамотности.
+          </p>
+
+          <ul class="reg-points">
+            <li>
+              <span class="point-icon">①</span>
+              Подходит студентам колледжей и вузов Москвы
+            </li>
+            <li>
+              <span class="point-icon">②</span>
+              Участие в проекте бесплатное
+            </li>
+            <li>
+              <span class="point-icon">③</span>
+              После регистрации откроется доступ к тестированию
+            </li>
+          </ul>
+
+          <div class="reg-note">
+            <svg viewBox="0 0 20 20" width="18" height="18" fill="none"><path d="M10 2L2 17h16L10 2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 8v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="0.9" fill="currentColor"/></svg>
+            Нажимая «Отправить заявку», вы соглашаетесь на обработку персональных данных в учебных
+            и организационных целях проекта.
+          </div>
+        </div>
+
+        <form class="reg-form" id="regForm" novalidate>
+          <div class="form-row">
+            <label for="fullName">ФИО <span class="req">*</span></label>
+            <input type="text" id="fullName" name="fullName" placeholder="Иванова Анна Сергеевна" required autocomplete="name">
+            <span class="field-error" data-error-for="fullName"></span>
+          </div>
+
+          <div class="form-row form-row--split">
+            <div>
+              <label for="org">Учебное заведение <span class="req">*</span></label>
+              <input type="text" id="org" name="org" placeholder="Название колледжа / вуза" required autocomplete="organization">
+              <span class="field-error" data-error-for="org"></span>
+            </div>
+            <div>
+              <label for="course">Курс / класс</label>
+              <input type="text" id="course" name="course" placeholder="Например, 2 курс">
+            </div>
+          </div>
+
+          <div class="form-row form-row--split">
+            <div>
+              <label for="email">Электронная почта <span class="req">*</span></label>
+              <input type="email" id="email" name="email" placeholder="name@example.ru" required autocomplete="email">
+              <span class="field-error" data-error-for="email"></span>
+            </div>
+            <div>
+              <label for="phone">Телефон <span class="req">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required autocomplete="tel">
+              <span class="field-error" data-error-for="phone"></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="track">Что вас интересует больше всего?</label>
+            <select id="track" name="track">
+              <option value="all" selected>Все форматы</option>
+              <option value="lecture">Лекции</option>
+              <option value="workshop">Воркшопы</option>
+              <option value="ctf">Киберучения / CTF</option>
+            </select>
+          </div>
+
+          <div class="form-row form-row--checkbox">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">Я даю согласие на обработку персональных данных <span class="req">*</span></label>
+            <span class="field-error" data-error-for="consent"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block">
+            Отправить заявку
+          </button>
+
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+
+      </div>
+    </section>
+
+    <div class="crack-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 20L80 20L110 5L150 35L190 20L1200 20" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+    </div>
+
+    <!-- ===================== ТЕСТИРОВАНИЕ ===================== -->
+    <section class="section" id="testing">
+      <div class="container">
+
+        <div class="section-head">
+          <p class="section-eyebrow">04 — Тестирование</p>
+          <h2 class="section-title">Проверь цифровой иммунитет</h2>
+          <p class="section-desc">
+            Короткий опрос по кибербезопасности поможет понять, какие темы стоит подтянуть.
+            Пройти его можно прямо здесь — или открыть в отдельном окне.
+          </p>
+        </div>
+
+        <div class="test-panel">
+
+          <div class="test-panel-head">
+            <div class="test-panel-title">
+              <span class="test-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div>
+                <h3>Тест «КиберМосква»</h3>
+                <p>Яндекс Формы · занимает 3–5 минут</p>
+              </div>
+            </div>
+
+            <a class="btn btn-secondary test-link-btn"
+               href="https://forms.yandex.ru/u/6a0e89c284227c6593ab7756"
+               target="_blank" rel="noopener noreferrer">
+              Открыть тест в отдельной вкладке
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="none"><path d="M6 4h6v6M12 4L4 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+
+          <div class="test-frame-wrap">
+            <div class="test-frame-loading" id="testFrameLoading">
+              <span class="loader-bolt" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M13 2L4 14h6l-1 8 11-14h-7l0-6z" fill="currentColor"/></svg>
+              </span>
+              Загружаем форму…
+            </div>
+            <iframe
+              src="https://forms.yandex.ru/u/6a0e89c284227c6593ab7756?iframe=1"
+              name="ya-form-6a0e89c284227c6593ab7756"
+              class="test-frame"
+              id="testFrame"
+              title="Тест «КиберМосква» — Яндекс Формы"
+              loading="lazy"
+              frameborder="0">
+            </iframe>
+          </div>
+
+          <p class="test-fallback">
+            Форма не загрузилась? Пройдите тест по
+            <a href="https://forms.yandex.ru/u/6a0e89c284227c6593ab7756" target="_blank" rel="noopener noreferrer">прямой ссылке</a>.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="crack-divider crack-divider--alt" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 20L1010 20L1050 35L1090 5L1120 20L1200 20" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+    </div>
+
+    <!-- ===================== О ПРОЕКТЕ / ОРГАНИЗАТОРЫ ===================== -->
+    <section class="section section--about" id="about">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">О проекте</p>
+          <h2 class="section-title">Кто стоит за «КиберМосквой»</h2>
+        </div>
+
+        <div class="org-grid">
+          <div class="org-card">
+            <div class="org-logo org-logo--cyber" data-logo="cybermoscow">
+              <img src="assets/logos/cybermoscow.png" alt="КиберМосква" class="org-logo-img">
+            </div>
+            <p class="org-name">КиберМосква</p>
+          </div>
+
+          <div class="org-card">
+            <div class="org-logo org-logo--white" data-logo="committee">
+              <img src="assets/logos/committee-white.png" alt="Комитет общественных связей и молодёжной политики города Москвы" class="org-logo-img">
+            </div>
+            <p class="org-name">Комитет общественных связей и молодёжной политики города Москвы</p>
+          </div>
+
+          <div class="org-card">
+            <div class="org-logo org-logo--white" data-logo="moymos">
+              <img src="assets/logos/moymos-white.png" alt="Молодёжь Москвы" class="org-logo-img">
+            </div>
+            <p class="org-name">Проектный офис «Молодёжь Москвы»</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+
+      <nav class="footer-nav" aria-label="Навигация по разделам в подвале">
+        <a href="#poster" data-nav>Афиша</a>
+        <a href="#speakers" data-nav>Спикеры</a>
+        <a href="#registration" data-nav>Регистрация</a>
+        <a href="#testing" data-nav>Тестирование</a>
+        <a href="#about" data-nav>О проекте</a>
+      </nav>
+
+      <div class="footer-logos">
+        <div class="footer-logo footer-logo--img" data-logo="cybermoscow"><img src="assets/logos/cybermoscow.png" alt="КиберМосква"></div>
+        <div class="footer-logo footer-logo--white" data-logo="committee"><img src="assets/logos/committee-white.png" alt="Комитет общественных связей и молодёжной политики города Москвы"></div>
+        <div class="footer-logo footer-logo--white" data-logo="moymos"><img src="assets/logos/moymos-white.png" alt="Молодёжь Москвы"></div>
+      </div>
+
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> «КиберМосква». Информационный проект, реализуемый при поддержке города Москвы.</p>
+    </div>
+  </footer>
+
+  <!-- кнопка «наверх» -->
+  <button class="to-top" id="toTopBtn" aria-label="Наверх страницы">
+    <svg viewBox="0 0 16 16" width="16" height="16" fill="none"><path d="M8 13V3M3 7l5-5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
