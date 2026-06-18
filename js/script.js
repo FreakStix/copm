@@ -107,44 +107,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let isValid = true;
     const data = new FormData(regForm);
 
-    const fullName = (data.get('fullName') || '').toString().trim();
-    if (fullName.length < 3) {
-      showFieldError('fullName', 'Укажите ваше ФИО полностью');
-      isValid = false;
-    } else {
-      showFieldError('fullName', '');
-    }
-
-    const org = (data.get('org') || '').toString().trim();
-    if (org.length < 2) {
-      showFieldError('org', 'Укажите учебное заведение');
-      isValid = false;
-    } else {
-      showFieldError('org', '');
-    }
-
     const email = (data.get('email') || '').toString().trim();
     if (!EMAIL_RE.test(email)) {
       showFieldError('email', 'Проверьте формат почты');
       isValid = false;
     } else {
       showFieldError('email', '');
-    }
-
-    const phone = (data.get('phone') || '').toString().trim();
-    if (!PHONE_RE.test(phone)) {
-      showFieldError('phone', 'Проверьте формат телефона');
-      isValid = false;
-    } else {
-      showFieldError('phone', '');
-    }
-
-    const consent = regForm.querySelector('#consent');
-    if (consent && !consent.checked) {
-      showFieldError('consent', 'Нужно согласие на обработку данных');
-      isValid = false;
-    } else {
-      showFieldError('consent', '');
     }
 
     return isValid;
@@ -177,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.info('[КиберМосква] Демо-режим формы. Данные не отправлены на сервер:', Object.fromEntries(new FormData(regForm)));
 
       if (formStatus) {
-        formStatus.textContent = 'Заявка принята! Мы свяжемся с вами по указанной почте.';
+        formStatus.textContent = 'Готово! Приглашение придёт на указанную почту.';
         formStatus.className = 'form-status is-success';
       }
       regForm.reset();

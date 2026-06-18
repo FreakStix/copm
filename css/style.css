@@ -181,7 +181,6 @@ svg { display: block; }
   height: 42px;
   width: auto;
   display: block;
-  border-radius: 8px;
 }
 .brand-mark {
   width: 36px; height: 36px;
@@ -730,8 +729,8 @@ select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmln
   overflow: hidden;
 }
 .footer-logo span { font-family: var(--font-mono); font-size: 9.5px; color: var(--ink-3); letter-spacing: 0.03em; }
-.footer-logo--img { border-style: solid; border-color: var(--line); overflow: hidden; padding: 0; }
-.footer-logo--img img { width: 100%; height: 100%; object-fit: cover; }
+.footer-logo--img { border-style: solid; border-color: var(--line); background: var(--bg-card); overflow: hidden; padding: 8px; }
+.footer-logo--img img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
 .footer-logo--white { border-style: solid; border-color: var(--line); background: #fff; padding: 8px; }
 .footer-logo--white img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
 
@@ -912,8 +911,16 @@ select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmln
 .org-logo--cyber {
   border-style: solid;
   border-color: var(--line-strong);
-  padding: 0;
+  background: var(--bg-1);
+  padding: 16px;
   overflow: hidden;
+}
+.org-logo--cyber .org-logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 .org-logo--cyber .org-logo-img {
   width: 100%;
